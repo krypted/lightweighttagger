@@ -3,6 +3,7 @@ Python script to recommend tags, given a text input
 
 ## Requirements
 nltk==3.4.5
+
 textblob==0.15.3
 
 ## Usage
