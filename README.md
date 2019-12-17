@@ -24,4 +24,4 @@ The response will be the number of tags, delimited with a end of line.
 
 
 ## Future work
-If you were to put this into production, I'd add a model json file that could then be used to further train it. This is really just using the natural language toolkit to isolate top meaninful words but looking at each industry something like this could be used in, there are lots of sets that can obtained in an automated fashion using nltk or other sources and then trained to make the output more specific for the intended use case. 
+If you were to put this into production, I'd add a model json file to replace stop_code in the code, that could then be used to further train it. This is really just using the natural language toolkit to isolate top meaninful words but looking at each industry something like this could be used in, there are lots of sets that can obtained in an automated fashion using nltk or other sources and then trained to make the output more specific for the intended use case. 
