@@ -1,0 +1,29 @@
+For years I’ve been adding a line in bash scripts to echo out a variable here and there. It’s funny how you just accept a workflow like that as “the way.” But when using an IDE for objected oriented languages I’ve always just expected breakpoints and the ability to watch variables when running code from within the IDE. But it never even occurred to me to do that with bash scripts.
+
+Then IsaacH at the office told me about an IDE that does that. Looking inside the IDE, it’s piping commands to bashdb. Soooo, bashdb is kinda’ like gdb. You can set breakpoints and print the content of variables when you run it. Or even test new lines as you’re writing them. Before we get started we’ll install it the easy way, with home-brew:
+
+sudo brew install bashdb
+
+The command needs a script to run. To see the version of bashdb use the –version option or with -h to see the help page:
+
+bashdb -h
+
+Now, let’s get into an interactive debugging environment. Pick a script and then run bashdb followed by the name of the script:
+
+bashdb test.sh
+
+This puts you into an interactive environment with a limited set of bash commands that can be run. Some important option:
+
+To see configurable options use the “show” command. Use the set command to define any of those options.
+To see what commands can be run use the “help” command.
+To quit, run the “quit” command or if you suspect the debugger is hung, use “kill” but that kills a signal and can lead to corruption so do so sparingly.
+To see a history of commands for the session, run the “history” command. or use “save” after that to save the history – useful when expect scripting as part of a build automation process.
+To see a list of line numbers and their corresponding contents use the “list” command.
+To define a breakpoint use the “break” command with the line number to break at.
+Use the “disable” command to disable a breakpoint, followed by the line number.
+To edit the script that was called when entering into the interactive environment, use the “edit” command and then use the “visual” command if you want to jump into a vi mode for script editing.
+Once you’ve setup your debugging environment, use the “run” command to run the script and see any information from breakpoints.
+Use “I breakpoints” to see a list of existing breakpoints.
+You don’t have to run it interactively. Call the script with a -c parameter followed by the script to run to do so non-interactively. For easier parsing you can do so with a -q option to skip the version and copyright strings. Then hit the s button on your keyboard to step through the script. You’ll be output into the interactive command can can test running commands afterwards using the “eval” command for new lines you may choose to put into your script, such as “eval echo !$”
+
+There’s tons more. That’s my basic usage. To unlock more of this command, check out http://bashdb.sourceforge.net/bashdbOutline.html. Or to get a GUI that does a lot of this in more visual ways, check out https://coderunnerapp.com.
