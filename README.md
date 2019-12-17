@@ -10,6 +10,7 @@ This script is built on nltk and textplob and should be invoked using python3. T
 
 pip3 install nltk
 
+
 pip3 install textblob
 
 To then invoke the script, call it from where it's installed (/Users/shared/tagger in the below example) and provide a --file option with the path and a --tags option to define how many tags to respond with, as follows:
